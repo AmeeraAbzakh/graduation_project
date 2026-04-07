@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Community & Animal Support</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    :root {
+      --bg:           #f4f6f3;
+      --white:        #ffffff;
+      --border:       #dde5d8;
+      --text:         #1a2e1a;
+      --muted:        #6b7f6b;
+      --green:        #2d7a3a;
+      --green-light:  #3d9e4e;
+      --green-pale:   #eaf4ec;
+      --orange:       #e8722a;
+      --orange-pale:  #fdf1ea;
+      --blue:         #1a6b8a;
+      --blue-pale:    #e8f4f9;
+      --transition:   0.25s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 15% 30%, rgba(45,122,58,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(232,114,42,0.06) 0%, transparent 55%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 48px 20px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 780px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .logo-mark i { font-size: 18px; color: var(--green); }
+    .logo-mark i.orange { color: var(--orange); }
+
+    .logo-mark span {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .page-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .page-header h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .page-header p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Label */
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* Role Cards */
+    .role-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .role-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 24px 28px;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .role-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 0 0 14px 14px;
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+
+    .role-card[href="user-signup.html"]::after { background: var(--green); }
+    .role-card[href="org-signup.html"]::after  { background: var(--blue); }
+    .role-card[href="need-signup.html"]::after { background: var(--orange); }
+
+    .role-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .role-card:hover::after { transform: scaleX(1); }
+
+    .role-card[href="user-signup.html"]:hover { border-color: var(--green); background: var(--green-pale); }
+    .role-card[href="org-signup.html"]:hover  { border-color: var(--blue);  background: var(--blue-pale); }
+    .role-card[href="need-signup.html"]:hover { border-color: var(--orange); background: var(--orange-pale); }
+
+    .card-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 26px;
+      transition: transform var(--transition);
+    }
+
+    .role-card:hover .card-icon { transform: scale(1.1); }
+
+    .role-card[href="user-signup.html"] .card-icon { background: var(--green-pale); color: var(--green); }
+    .role-card[href="org-signup.html"]  .card-icon { background: var(--blue-pale);  color: var(--blue); }
+    .role-card[href="need-signup.html"] .card-icon { background: var(--orange-pale); color: var(--orange); }
+
+    .role-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .role-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      transition: all var(--transition);
+    }
+
+    .role-card[href="user-signup.html"] .card-cta { background: var(--green-pale); color: var(--green); }
+    .role-card[href="org-signup.html"]  .card-cta { background: var(--blue-pale);  color: var(--blue); }
+    .role-card[href="need-signup.html"] .card-cta { background: var(--orange-pale); color: var(--orange); }
+
+    .role-card[href="user-signup.html"]:hover .card-cta { background: var(--green); color: white; }
+    .role-card[href="org-signup.html"]:hover  .card-cta { background: var(--blue);  color: white; }
+    .role-card[href="need-signup.html"]:hover .card-cta { background: var(--orange); color: white; }
+
+    /* Divider */
+    .or-divider {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .or-divider::before, .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Login link */
+    .login-link {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .login-link a {
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .login-link a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .role-cards { grid-template-columns: 1fr; gap: 14px; }
+      .page-header h1 { font-size: 24px; }
+      body { padding: 32px 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+<main>
+
+  <header class="page-header">
+    <div class="logo-mark">
+      <i class="fa-solid fa-paw"></i>
+      <span>Community Support</span>
+      <i class="fa-solid fa-heart orange"></i>
+    </div>
+    <h1>Join Us &amp; Make a<br /><em>Real Difference</em></h1>
+    <p>Choose the account type that best describes you<br />to get started on the right path.</p>
+  </header>
+
+  <p class="section-label">I am joining as a...</p>
+
+  <div class="role-cards">
+
+    <a class="role-card" href="user-signup.html">
+      <div class="card-icon"><i class="fa-solid fa-user"></i></div>
+      <h3>Supporter / Donor</h3>
+      <p>I want to donate, volunteer, and support campaigns for people and animals in need.</p>
+      <span class="card-cta">Get Started <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a class="role-card" href="org-signup.html">
+      <div class="card-icon"><i class="fa-solid fa-building-ngo"></i></div>
+      <h3>Organization</h3>
+      <p>We are an NGO, animal shelter, or welfare group managing rescue and support campaigns.</p>
+      <span class="card-cta">Register Org <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a class="role-card" href="need-signup.html">
+      <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+      <h3>Person in Need</h3>
+      <p>I am seeking community support due to a personal emergency or financial hardship.</p>
+      <span class="card-cta">Request Help <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+  </div>
+
+  <div class="or-divider">Already have an account?</div>
+
+  <p class="login-link">
+    <a href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign in to your account</a>
+  </p>
+
+</main>
+</body>
+</html>
